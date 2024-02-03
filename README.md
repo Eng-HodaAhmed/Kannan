@@ -3,4 +3,4 @@
 * Add employee,edit or delete is available.
 * Add lateness or abcence to an employee.
 * dashboard to view all procedure that should apply to the employees with reports available to print to assign by the employee
-### https://github.com/Eng-HodaAhmed/Kannan.git
+#### https://eng-hodaahmed.github.io/deploy-Kannan/
