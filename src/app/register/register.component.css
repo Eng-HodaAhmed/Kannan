@@ -1,0 +1,13 @@
+.grayMode{
+    color: gray
+}
+.line{
+border-right: 2px solid rgb(177, 177, 177);
+}
+input,select{
+    border-radius: 5px;
+    border: 1px solid rgb(199, 199, 199);
+}
+input.ng-invalid.ng-touched{
+    border: 1px solid rgb(205, 12, 12) !important;
+ }

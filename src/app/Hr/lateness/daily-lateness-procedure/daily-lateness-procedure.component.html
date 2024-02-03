@@ -1,0 +1,107 @@
+<div class="content page"  >
+    <div class="row d-flex flex-row-reverse justify-content-between p-2">
+        <div class="col-4 text-center">
+          <img src="assets/img/المملكة.JPG"  class="img-fluid" alt="">
+          <p>وزارة التعليم</p>
+          <p>الإدارة العامة للتعليم بمنطقة{{orgDetails.Region}}</p>
+          <p>إدارة الموارد البشرية</p>
+        </div>
+         
+        <div class="col-3">
+          <img class="img-fluid" src="assets/img/وزارة التعليم.JPG" alt="">
+        </div>
+          
+        <div class="col-3 text-end">
+          <p class="">:الرقـــــــــــــــم </p>
+          <p >:التاريـــــــــــخ</p>
+          <p>:المرفقـات</p>
+          
+          <p class="text-start">نموذج رقم(18)</p>
+          <p class="text-start">رمز النموذج:(و.م.ع.ن-02-02)</p>
+        </div>
+    </div>
+    
+
+    <div class="text-center">
+        <h5>اسم النموذج:تنبيه عن تأخر/انصراف</h5>
+    </div>
+    <table class="table" style="direction: rtl;">
+        <thead>
+            <tr>
+                <th class="table-secondary col-4">{{orgDetails.OrgType}}</th>
+                <td>{{orgDetails.OrgName}}</td>
+            </tr>
+        </thead>
+    </table>
+    <table class="table" style="direction: rtl;">
+        <thead>
+            <tr>
+                <th class="table-secondary col-4">رقم الهوية الوطنية</th>
+                <td>{{employeeDetails.EmployeeIDNum}}</td>
+            </tr>
+        </thead>
+    </table>
+    <table class="table " style="direction: rtl;">
+        <thead class="text-center">
+            <tr>
+                <th class="table-secondary col-4">الاسم</th>
+                <th class="table-secondary">التخصص</th>
+                <th class="table-secondary">المستوى/المرتبة</th>
+                <th class="table-secondary">رقم الوظيفة</th>
+                <th class="table-secondary">العمل الحالي</th>
+            </tr>
+        </thead>
+        <tbody>
+            <td>{{employeeDetails.EmployeeName}}</td>
+            <td>{{employeeDetails.Major}}</td>
+            <td>{{employeeDetails.Level}}</td>
+            <td>{{employeeDetails.JobNumber}}</td>
+            <td>{{employeeDetails.CurrentJob}}</td>
+        </tbody>
+    </table>
+    <div class="letter " style="direction: rtl;">
+        <p>المكرم المعلم :{{employeeDetails.EmployeeName}}</p>
+        <p>السلام عليكم ورحمة الله وبركاته</p>
+        <p>انه فى يوم {{day}} الموافق {{hegriDate}} اتضح مايلي</p>
+        <p> تأخركم من بداية الدوام وحضوركم الساعه [{{employeeLateDetails.ArrivingTime|date:'h:mm'}}]</p>
+        <p>عدم تواجدكم أثناء الدوام من الساعة[ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]إلى الساعة [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</p>
+        <p>انصرافكم مبكرا قبل نهاية الدوام من الساعة [&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</p>
+        <p class="text-center">عليه نأمل توضيح أسباب ذلك مع إرفاق ما يؤيد عذركم. ولكم تحياتي</p>
+        <div class="row justify-content-between">
+            <p class="col-3">مدير ال{{orgDetails.OrgType}}:{{orgDetails.ManagerName}}</p>
+            <p class="col-3">التوقيع</p>
+            <p class="col-3">التاريخ: {{date}}</p>
+        </div>
+    </div>
+
+    <div class="letter  " style="direction: rtl;">
+        <p>المكرم: مدير ال{{orgDetails.OrgType}}</p>
+        <p>السلام عليكم ورحمة الله وبركاته</p>
+        <p>أفيدكم أن أسباب ذلك مايلي:</p>
+        <p>.........................................................</p>
+        <p>.........................................................</p>
+      
+        <div class="row justify-content-between">
+            <p class="col-3">الإسم:{{employeeDetails.EmployeeName}}</p>
+            <p class="col-3">التوقيع</p>
+            <p class="col-3">التاريخ : {{date}}</p>
+        </div>
+    </div>
+    <div class="letter  " style="direction: rtl;">
+        <p>رأى مدير ال{{orgDetails.OrgType}}</p>
+        <div class="d-flex">
+            <div class="square"></div> <div>عذره مقبول</div>
+        </div>
+        <div class="d-flex">
+            <div class="square"></div> <div>عذره غير مقبول ويحسم عليه</div>
+        </div>
+        <div class="row justify-content-between">
+            <p class="col-3">مدير ال{{orgDetails.OrgType}}:{{orgDetails.ManagerName}}</p>
+            <p class="col-3">التوقيع:</p>
+            <p class="col-3">التاريخ: {{date}}</p>
+        </div>      
+    </div>
+
+    <h6 class="text-end">ملاحظة: ترفق بطاقةالمسائلة مع أصل القرار في حالة عدم قبول العذر لحفظها بملفه بالإدارة ، أصله لملفه ب الإدارة/االمكتب/المدرسة</h6>
+    
+</div>

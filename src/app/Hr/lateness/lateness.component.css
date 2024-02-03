@@ -1,0 +1,15 @@
+
+.borderLift{
+    border-left: 1px solid gray;
+}
+.alertBox{
+    min-width:200px;
+    background-color: rgb(115, 205, 249);
+    border: 1px solid  rgb(57, 157, 234);
+    height: 50px;
+    padding-top: 10px;
+    border-radius: 7px;
+}
+input{
+    border-color: rgb(158, 158, 158) !important;
+}

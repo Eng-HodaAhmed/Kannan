@@ -1,0 +1,106 @@
+
+/* .col-4{
+    border-bottom: 2px solid #3c5b56;
+} */
+.nav-link,.title2{
+    color: #3c5b56;
+    font-weight: bolder;
+   
+}
+h6{
+    font-size: 14px;
+    margin-top: 10px;
+}
+.coloredPart{
+    width: 10px;
+    height: 100%;
+    margin: 0;
+   border-radius:0 7px 7px 0;
+   
+}
+
+
+p{
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight:normal;
+}
+.bold{
+    font-weight: bold;
+    font-size: 18px;
+  z-index: 1;
+  
+}
+
+.active, .nav-link:hover{
+    background-color: #3c5b56;
+    color: white;
+}
+.line{
+    
+    border-left:2px solid #b2c3c1;
+    height: 75vh;
+   
+}
+/* .margin{
+    margin-right: 2px;
+} */
+.loginCard{
+border: 1px solid #b2c3c1;
+border-radius: 7px;
+margin-bottom: 10px !important;
+height: 20vh;
+direction: rtl;
+ position: relative;
+ cursor: pointer;
+ 
+
+}
+.loginCard1{
+    border: 1px solid rgb(67, 133, 234);
+}
+.loginCardBackground1{
+    position: relative;
+    background-image: url(../../assets/img/people1.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 95%;
+    height: 100%;
+  
+}
+.loginCardBackground2{
+    position: relative;
+    background-image: url(../../assets/img/interior_office.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+  
+}
+.loginCardBackground3{
+    position: relative;
+    background-image: url(../../assets/img/3750.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+  
+}
+.transeparence{
+    position:absolute;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.button{
+    position: absolute;
+    border: 1px solid ;
+    padding: 5px 10px;
+    color: white;
+   bottom: 10px;
+    font:icon;
+    left: 10px;
+  
+}

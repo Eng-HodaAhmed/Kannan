@@ -1,0 +1,75 @@
+<app-nav-icons></app-nav-icons>
+<div class="row ">
+    <div class="box col-md-8 m-auto mt-4">
+        <div class="text-center mt-4 mb-5">
+            <h4>بيانات المنشأة</h4>
+        </div>
+        <form class="text-end form-inline" #f="ngForm" (ngSubmit)="onSubmit()" style="direction: rtl;">
+            <div class="row mb-3 form-group ">
+
+                <label for="orgName" class="col-sm-2 pe-3 col-form-label">اسم المنشأة:- </label>
+                <div class="col-sm-4">
+                    <input type="text" class=" form-control" [ngClass]="{read:editFlag==false}" name="orgName"
+                        [(ngModel)]="orgName">
+                </div>
+
+            </div>
+
+            <div class=" row mb-3 justify-content-evenly">
+
+                <label for="orgType" class="col-sm-2 pe-3 col-form-label">
+                نوع المنشأة:-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <div class="col-sm-4">
+                    <!-- <input type="text" class="form-control" [ngClass]="{read:editFlag==false}" name="orgType"
+                        [(ngModel)]="orgType"> -->
+                    <select class="form-select" name="orgType" [ngClass]="{read:editFlag==false}" [(ngModel)]="orgType" required>
+                        <option value="مدرسة">مدرسة</option>
+                        <option value="مكتب تعليم">مكتب تعليم</option>
+                        <option value="إدارة تعليم">إدارة تعليم</option>
+                    </select>
+                </div>
+
+                <label for="orgRegion" class="col-sm-2 pe-3 col-form-label"> المنطقة:-&nbsp;&nbsp;&nbsp;</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" [ngClass]="{read:editFlag==false}" name="orgRegion"
+                        [(ngModel)]="orgRegion">
+                </div>
+
+            </div>
+            <div class=" row mb-3 justify-content-evenly">
+
+                <label for="bossName" class="col-sm-2 pe-3 col-form-label"> الرئيس المباشر:-&nbsp;&nbsp;</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" [ngClass]="{read:editFlag==false}" name="bossName"
+                        [(ngModel)]="bossName">
+                </div>
+
+                <label for="bossId" class="col-sm-2 pe-3 col-form-label">  الهوية الوطنية:-&nbsp;&nbsp;</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" [ngClass]="{read:editFlag==false}" name="bossId"
+                        [(ngModel)]="bossId">
+                </div>
+
+            </div>
+            <div class=" row mb-3 ">
+
+                <label for="bossName" class="col-sm-2 pe-3 col-form-label"> بداية الدوام :-&nbsp;&nbsp;</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" [ngClass]="{read:editFlag==false}" name="startTime" [(ngModel)]="startTime">
+                </div>
+            </div>
+            <div class=" row mb-3 pe-2 mt-5">
+                <div *ngIf="editFlag==false else save;" class="col-5 text-center">
+                    <button type="submit" class="btn btn-success"> تعديل</button>
+                </div>
+                <ng-template #save>
+                    <div  class="col-5 text-center">
+                        <button type="submit" class="btn btn-primary"> حفظ</button>
+                    </div>
+                </ng-template>
+               
+            </div>
+        </form>
+    </div>
+</div>
+<app-footer></app-footer>

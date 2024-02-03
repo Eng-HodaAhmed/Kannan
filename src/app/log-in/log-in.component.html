@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-md-4 m-auto" style="direction: rtl;">
+        <form (ngSubmit)="onSumbite()" #f="ngForm" class="mt-4 mb-4 p-4">
+            <h3 class="mt-5 text-center">منصة كَنَّـن</h3>
+            <h6 class="mt-5 text-center text-primary">تسجيل الدخول</h6>
+            <div class="form mt-3">
+                <div class="mb-3">
+                    <label  class="form-label">اسم المستخدم</label>
+                    <input type="text" class="form-control" ngModel name="userName" required>
+                </div>
+
+                <div class="">
+                    <label  class="form-label">كلمة المرور </label>
+                    <input type="password" class="form-control" ngModel name="password" required >
+                </div>
+
+                <div class="mb-3 mt-5">
+                    <button type="submit" class="btn btn-primary form-control">دخول</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<app-footer></app-footer>

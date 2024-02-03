@@ -1,0 +1,17 @@
+<ul class="nav nav-taps text-center  ">
+    <li class="col absence" role="presentation" routerLinkActive="active" >
+        
+        <a class="nav-link " aria-current="page" routerLink="absence">إجراءات الغياب</a>
+
+    </li>
+    
+    <li [routerLinkActiveOptions]="{exact:true}" class="col" role="presentation" routerLinkActive="active">
+        
+        <a class="nav-link " routerLink="./" >إجراءات التأخير</a>
+        
+    </li>
+
+</ul>
+<div class=" content w-100 mb-4">
+<router-outlet></router-outlet>
+</div>

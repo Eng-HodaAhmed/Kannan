@@ -1,0 +1,145 @@
+<div *ngFor="let emp of employees" class="content page"  >
+    <div class="row d-flex flex-row-reverse justify-content-between p-2">
+        <div class="col-4 text-center">
+          <img src="assets/img/المملكة.JPG"  class="img-fluid" alt="">
+          <p>وزارة التعليم</p>
+          <p>الإدارة العامة للتعليم بمنطقة {{orgDetails.Region}} </p>
+          <p>إدارة الموارد البشرية</p>
+        </div>
+         
+        <div class="col-3">
+          <img class="img-fluid" src="assets/img/وزارة التعليم.JPG" alt="">
+        </div>
+          
+        <div class="col-3 text-end">
+          <p class="">:الرقـــــــــــــــم </p>
+          <p >:التاريـــــــــــخ</p>
+          <p>:المرفقـات</p>
+        </div>
+  
+    </div>
+
+    <div class="text-center">
+        <h5>بيان بعدد دقائق التأخير التي تم رصدها على الموظفين والإجراء المتخذ بشأنها</h5>
+        <h5>خلال العام الدراسي</h5>
+    </div>
+
+    <table class="table mt-2 mb-2 " style="direction: rtl;">
+        <thead>
+            <tr>
+                <th class="table-secondary col-2">اسم الموظف</th>
+                <td>{{emp. EmployeeName}}</td>
+                <th class="table-secondary col-2" >المسمى الوظيفي</th>
+                <td>{{emp.JobName}}</td>
+            </tr>
+        </thead>
+      <tbody>
+        <tr class="">
+            <th class="table-secondary col-2">رقم الهوية الوطنية</th>
+            <td>{{emp.EmployeeIdNum}}</td>
+            <th class="table-secondary col-2">جهة العمل</th>
+            <td>{{orgDetails.OrgName}}</td>
+        </tr>
+      </tbody>
+
+    </table >
+
+    <table class="table text-center" style="direction: rtl;">
+        <thead class="table-secondary text-center">
+            <tr>
+                <th class="">م</th>
+                <th class="col-2">عدد دقائق التأخر</th>
+                <th class="col-2">نوع التأخر</th>
+                <th class="col-6" >الإجراء المتخذ</th>
+                <th class="col-2">التوقيع/التاريخ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="table-secondary">1</td>
+                <td style="direction: rtl;">(30 دقيقة)</td>
+                <td > تنبيه شفوي</td>
+                <td class="text-end"> نظراً لتأخرك لذا وجب تنبيهك شفويا</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="table-secondary">2</td>
+                <td style="direction: rtl;">(60 دقيقة)</td>
+                <td>تنبيه خطي</td>
+                <td class="text-end"> نظراً لتأخرك لذا وجب تنبيهك خطيا</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="table-secondary">3</td>
+                <td style="direction: rtl;">(120 دقيقة)</td>
+                <td>تعهد خطي (1)</td>
+                <td class="text-end"> 
+                    أتعهد بعدم التأخر وإذا تكرر أحتمل ما يترتب على تأخري 
+                    من إجراءات.</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="table-secondary">4</td>
+                <td style="direction: rtl;">(240 دقيقة)</td>
+                <td>تعهد خطي (2)</td>
+                <td class="text-end">
+                    أتعهد للمرة الثانية بعدم التأخر وأحتمل ما يرتتب على ذلك 
+                    من إجراءات.</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="table-secondary">5</td>
+                <td style="direction: rtl;">(420 دقيقة)</td>
+                <td>لفت نظر</td>
+                <td class="text-end">نلفت نظرك لتكرار تأخرك علمًا بأنه سبق تنبيهك وأخذ 
+                    تعهد عليك، مع رفع الغياب للحسم</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="table-secondary">6</td>
+                <td style="direction: rtl;">(840 دقيقة)</td>
+                <td>مساءلة ولفت نظر</td>
+                <td class="text-end">
+                    مساءلة الموظف خطيا من قبل مدير الجهة والرفع للمكتب 
+                    المختص ليلفت نظره، مع رفع الغياب للحسم. </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="table-secondary">7</td>
+                <td style="direction: rtl;">(1680 دقيقة)</td>
+                <td>الرفع لإدارة الموارد البشرية(وحدة متابعةالموظفين)</td>
+                <td class="text-end"> الرفع لإدارة الموارد البشرية(وحدة متابعة الموظفين)بما تم 
+                    من إجراءات سابقة مع إرفاق صورة من مساءلة التأخير ورفع 
+                    الغياب للحسم.</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="table-secondary">8</td>
+                <td style="direction: rtl;">(2100 دقيقة)</td>
+                <td>الرفع لإدارة الموارد البشرية(وحدة متابعةالموظفين)</td>
+                <td class="text-end"> الرفع لإدارة الموارد البشرية(وحدة متابعة الموظفين) مع إرفاق 
+                    كافة الإجراءات التي سبق اتخاذها أعلاه مع إرفاق صورة 
+                    من هذا النموذج التأخير ورفع الغياب للحسم.</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row mt-2 pb-2 " style="direction: rtl;">
+        <div class="col-4">
+            <!-- <p>مديرال{{orgDetails.OrgType}}</p>
+            <p >الإسم: {{orgDetails.ManagerName}}</p>
+            <p>التوقيع:</p> -->
+            
+        </div>
+        <div class="col-4">
+            <p>الختم</p>
+        </div>
+        <div class="col-4">
+            <p>يعتمد مدير ال{{orgDetails.OrgType}}</p>
+            <p >الإسم:{{orgDetails.ManagerName}}</p>
+            <p>التوقيع:</p>
+        </div>
+    </div>
+</div>
+
+<!-- <app-daily-lateness-procedure></app-daily-lateness-procedure> -->

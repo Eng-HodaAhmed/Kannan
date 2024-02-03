@@ -1,0 +1,101 @@
+<app-nav-icons></app-nav-icons>
+<div class="box col-md-8 m-auto mt-5 mb-4">
+    <div class="text-center m-4">
+        <h5 *ngIf="editFlag">تعديل بيانات موظف</h5>
+        <h5 *ngIf="!editFlag">إضافة موظف </h5>
+    </div>
+
+    <form [formGroup]="employeeForm" class="col-md-10 m-auto text-end" (ngSubmit)="onFormSubmit()">
+        <div class="mb-3">
+            <label for="name" class="form-label me-2" >الاسم</label>
+            <input type="text" class="form-control text-end" formControlName="empName"  >
+            <span class="helpBlock mt-2 " *ngIf="!employeeForm.get('empName').valid && employeeForm.get('empName').touched">من فضلك أدخل الاسم</span>
+        </div>
+        <div class="mb-3 row">
+            <div class="col-md-6">
+                <label for="jobName" class="form-label me-2">المسمى الوظيفي</label>
+                <input type="text"  class="form-control text-end"  formControlName="jobName" >
+                
+            </div>
+            <div class="col-md-6">
+                <label for="empId" class="form-label me-2">رقم الهوية</label>
+                <input type="text" maxlength="10" pattern="[0-9]{0,10}" class="form-control text-end"  formControlName="empId">
+                <span class="helpBlock mt-2" *ngIf="!employeeForm.get('empId').valid && employeeForm.get('empId').touched">من فضلك أدخل رقم الهوية بشكل صحيح</span>
+            </div>
+ 
+        </div>
+
+        <div class="mb-3 row">
+
+            <div class="col-md-6 ">
+                <label for="jobLevel" class="form-label me-2  ">المستوى/ المرتبة</label>
+                <input type="text" class="form-control text-end" formControlName="jobLevel" >
+            </div>
+           
+            <div class="col-md-6 ">
+                <label for="specialist" class="form-label me-2  ">التخصص</label>
+                <input type="text" class="form-control text-end" formControlName="specialist" >
+                <!-- <span class="helpBlock mt-2" *ngIf="!specialist.valid && specialist.touched">من فضلك أدخل التخصص</span> -->
+            </div>
+        
+        </div>
+
+        <div class="mb-3 row">
+
+            <div class="col-md-6 margin">
+                <label for="jobType" class="form-label me-2 ">على ملاك المنشأة</label>
+                <select name="type" class="form-control text-end" formControlName="jobType">
+                    <option value="نعم" >نعم</option>
+                    <option value="لا - منتدب">لا - منتدب</option>
+                </select>
+                <span class="helpBlock mt-2" *ngIf="!employeeForm.get('jobType').valid &&employeeForm.get('jobType').touched">من فضلك اختر نوع الوظيفة</span>
+            </div>
+           
+            <div class="col-md-6 ">
+                <label for="job" class="form-label me-2  ">العمل الحالي</label>
+                <input type="text" class="form-control text-end" formControlName="job"  >
+                <span class="helpBlock mt-2 " *ngIf="!employeeForm.get('job').valid && employeeForm.get('job').touched">من فضلك أدخل العمل الحالي</span>
+            </div>
+        
+        </div>
+
+        <div class="mb-3 row">
+            <div class="col-md-6 margin">
+                <label for="jobNumber" class="form-label me-2 ">رقم الوظيفة</label>
+                <input type="number" min="1" class="form-control text-end"  formControlName="jobNumber"   >
+               
+            </div>
+            <div class="col-md-6">
+                
+                    <label for="date" class="form-label me-2 ">تاريخ استلام الوظيفة</label>
+                    <input type="text" class="form-control text-end"  bsDatepicker name="datepickerModel" formControlName="datepickerModel"  />
+                
+
+                <!-- <span class="helpBlock " >من فضلك أدخل تاريخ الاستلام </span> -->
+            </div>
+        
+        </div>
+
+
+        <div class="row" >
+            <div class="col-6">
+                <div *ngIf="RespCode==1" class="alert alert-success text-center mb-4 mt-3" role="alert">
+                    تم الحفظ بنجاح
+                </div>
+            </div>
+            <div class="col-6">
+                <div class=" mb-4 mt-3 text-end">
+                    <button type="button" class="btn btn-secondary me-2  pb-2" routerLink="/employee">رجوع </button>
+                    <button type="submit"  class="btn btn-success  pb-2 " [disabled]="!employeeForm.valid"  >
+                        <span *ngIf="editFlag">تعديل</span>
+                        <span *ngIf="!editFlag">حفظ</span>
+                    </button>
+                </div>
+            </div>
+        
+        </div>
+       
+    </form>
+</div>
+
+

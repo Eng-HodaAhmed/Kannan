@@ -1,0 +1,26 @@
+select{
+    overflow-y:auto;
+    border-radius: 5px;
+    border: 1px solid rgb(185, 185, 185);  
+  }
+  option{
+    overflow-y:scroll;
+  }
+
+  thead th {
+    position: sticky;
+    top: 0;
+  }
+  img{
+    width: 70%;
+}
+p{
+  padding: 0;
+  margin: 0px;
+}
+.card-body{
+  height: 800px;
+   overflow-y: scroll;
+   border: 1px solid rgb(204, 204, 204);
+   box-shadow: 0 3px 3px 3px rgb(228, 228, 228);
+}

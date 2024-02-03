@@ -1,0 +1,23 @@
+.box{
+    border: 1px solid rgb(191, 191, 191);
+    border-radius: 7px;
+    /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    background-color: rgb(250, 250, 250);
+}
+.read{
+    background-color: rgb(250, 250, 250); 
+    border: none;
+    pointer-events: none; /* Disable pointer events to prevent interaction */
+    user-select: none; /* Disable text selection */
+   cursor: not-allowed; 
+    
+}
+input,select{
+    border-color: rgb(148, 148, 148) !important;
+ }
+ label{
+    padding: 0;
+ }
+ input.ng-invalid.ng-touched{
+    border: 1px solid red !important;
+}

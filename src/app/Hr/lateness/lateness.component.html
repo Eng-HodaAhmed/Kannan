@@ -1,0 +1,114 @@
+<app-nav-icons></app-nav-icons>
+<div class="container">
+    <div class="col-md-9 m-auto">
+        <div class="card mt-2 mb-4">
+            <div class="card-header">
+                <div class="row p-2 d-flex flex-row-reverse">
+                    <div class="col-6 text-end">
+                        سجل التأخير
+                    </div>
+                    <div dir="rtl" class="col-6 text-start">
+                        التوقيت الرسمي: {{startTime | date:'h:mm '}}
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex flex-row-reverse m-4 text-end ">
+                <div class="col-md-1 text-center">
+                    <label for="date" class="">التاريخ</label>
+                </div>
+                <div class="col-md-2 d-flex flex-row-reverse">
+                    <input type="text" class="text-center form-control" bsDatepicker name="datepickerModel"
+                        [(ngModel)]="datepickerModel" (bsValueChange)="fechLatenessEmp($event)" />
+                </div>
+                <div class="col-md-2 d-flex flex-row-reverse">
+                    <label for=""> &nbsp;&nbsp; : اليوم</label>
+                    <label for="hejriDate">{{day}}</label>
+
+                </div>
+                <div class="col-md-5 d-flex flex-row-reverse">
+                    <label for=""> &nbsp;&nbsp;: التاريخ الهجري </label>
+                    <label for="hejriDate">{{hegriDate}}</label>
+
+                </div>
+
+            </div>
+            <div class="card-body m-2" style="max-height: 300px; overflow-y: scroll ">
+
+                <table class="table table-striped text-center ">
+                    <thead>
+                        <tr>
+
+                            <th class="col-md-2">الإجراءات</th>
+                            <th class="borderLift col-md-3">التأخير اليومي</th>
+                            <th class="borderLift col-md-3  ">توقيت حضور الموظف</th>
+                            <th class="borderLift col-md-3  ">اسم الموظف</th>
+                            <th class="borderLift col-md-1  ">م</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="(lateEmployees==null ||lateEmployees.length==0)&&newLatnessFlag!=1">
+
+                        <tr>
+                            <td colspan="5">
+
+                                <p>لا يوجد موظفين متأخرين لعرضهم</p>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                    <tbody *ngIf="lateEmployees!=null || newLatnessFlag==1">
+                        <tr *ngFor="let emp of lateEmployees;let i=index">
+
+                            <td class="col-md-3 ">
+                                <button class="btn btn-outline-danger me-2 col-md-5 btn-md" [disabled]="emp.CanBeDeleted==false"  (click)="onDeleteLateness(emp.LatenessId)">حذف </button>
+                                <button class="btn btn-outline-primary col-md-5 btn-md" (click)="onPrint(i,emp.EmployeeName)">طباعة </button>
+                            </td>
+                            <td class="borderLift col-md-2 " style="direction: rtl;"> {{lateMin[i]}}</td>
+                            <td class="borderLift col-md-3 "> {{emp.ArrivingTime.split(" ")[1]}}</td>
+                            <td class="borderLift col-md-3 text-end">{{emp.EmployeeName}}</td>
+                            <td class="borderLift col-md-1 ">{{i+1}}</td>
+
+                        </tr>
+
+
+                        <tr *ngIf="newLatnessFlag==1">
+
+                            <td class="col-md-2 justify-content-center">
+                                <button class="btn btn-outline-primary col-md-10 btn-md" (click)="onSaveLatenessData()">حفظ</button>
+                            </td>
+                            <td class="borderLift col-md-3">
+                                <!-- <label for="">{{myTime}}</label> -->
+                                <input type="text" class="form-control text-center " style="direction: rtl;" readonly name="minLate" [(ngModel)]="minLate" >
+                            </td>
+                            <td class="borderLift col-md-3  ">
+                                <timepicker class="time" [(ngModel)]="myTime" name="myTime" [showMeridian]=false
+                                    [min]="minTime" [max]="maxTime" [showMeridian]="" [showSpinners]=false (ngModelChange)="calculateNewMinLate()">
+                                </timepicker>
+                            </td>
+                            <td class="borderLift col-md-3 text-end">
+                                <input type="text" id="state" class="form-control text-end ps-0" name="empName"
+                                    [(ngModel)]="empName" [typeahead]="empNames" [typeaheadScrollable]="true" [typeaheadOrderBy]="sortConfig"
+                                    [typeaheadOptionsInScrollableView]="5" maxlength="3">
+                            </td>
+
+                            <td class="borderLift col-md-1 "></td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="row text-end me-4 ">
+                <div class="col-3 ms-auto mb-2 ">
+                    <button class="btn btn-primary " (click)="newLatnessFlag=1">اضافة موظف</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-2 mb-4 col-md-9 m-auto">
+        <button class="btn btn-primary col-md-1" routerLink="/controllerPage">رجوع</button>
+        
+    </div>
+
+</div>
+<app-footer></app-footer>

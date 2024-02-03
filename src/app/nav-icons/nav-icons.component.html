@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg ">
+  <div class="container">
+    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto pe-5 col-md-6 justify-content-between">
+        <!-- <li class="nav-item dropdown-center">
+          <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            الاشتراك
+          </a>
+          <ul class="dropdown-menu text-end">
+            <li><a class="dropdown-item" href="#">تغيير حالة الاشتراك</a></li>
+
+          </ul>
+        </li> -->
+
+        <li class="nav-item dropdown-center">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            الإعدادات الرئيسية
+          </a>
+          <ul class="dropdown-menu text-end">
+            <li><a class="dropdown-item me-auto" routerLink="/org">بيانات المنشأة</a></li>
+            <!-- <li><a class="dropdown-item me-auto" routerLink="/register">بيانات الاشتراك</a></li> -->
+            <!-- <li><a class="dropdown-item" href="#">بيانات المستخدم </a></li> -->
+            <li><a class="dropdown-item" (click)="signOut()">تسجيل الخروج </a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown-center">
+          <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            التقارير
+          </a>
+          <ul class="dropdown-menu text-end">
+            <li><a class="dropdown-item" routerLink="/latenessReport">حصر دقائق التأخير لموظف</a></li>
+            <li><a class="dropdown-item" routerLink="/absenceReport">حصر أيام الغياب لموظف</a></li>
+            <li><a class="dropdown-item" routerLink="/yearReport" >متابعة تأخير وغياب الموظفين خلال العام</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown-center">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            متابعة
+          </a>
+          <ul class="dropdown-menu text-end">
+            <li><a class="dropdown-item" routerLink="/followingLateness">تأخير الموظفين</a></li>
+            <li><a class="dropdown-item" routerLink="/followingAbsence">غياب الموظفين</a></li> 
+
+          </ul>
+        </li>
+        <li class="nav-item dropdown-center">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            جديد          </a>
+          <ul class="dropdown-menu text-end">
+            <li><a class="dropdown-item" routerLink="/employee">الموظفين</a></li>
+            <li><a class="dropdown-item " routerLink="/addLateness">التأخير اليومي</a>
+            </li>
+
+            <li><a class="dropdown-item" routerLink="/addAbsence">الغياب اليومي</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+</nav>

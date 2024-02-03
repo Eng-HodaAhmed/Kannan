@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+@media print {
+  app-root > * { display: none; }
+  app-root app-print-layout { display: block; }
+}

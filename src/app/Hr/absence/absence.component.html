@@ -1,0 +1,181 @@
+<app-nav-icons></app-nav-icons>
+<div class="container">
+    <div class="col-md-10 m-auto">
+        <div class="card mt-2 mb-4">
+            <div class="card-header">
+                <div class="row p-2 d-flex flex-row-reverse">
+                    <div class="col-6 text-end">
+                        سجل الغياب
+                    </div>
+
+                </div>
+            </div>
+            <div class="row d-flex flex-row-reverse m-4 text-end">
+                <div class="col-md-2 text-center">
+                    <label for="date" class="mb-2">تاريخ الغياب</label>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="text-center form-control" bsDatepicker name="datepickerModel"
+                        [(ngModel)]="datepickerModel" (bsValueChange)="fechAbsenceEmp($event)" />
+                </div>
+                <div class="col-md-2 d-flex flex-row-reverse">
+                    <label for=""> &nbsp;&nbsp; : اليوم</label>
+                    <label for="hejriDate">{{day}}</label>
+
+                </div>
+                <div class="col-md-4 d-flex flex-row-reverse">
+                    <label for=""> &nbsp;&nbsp;: التاريخ الهجري </label>
+                    <label for="hejriDate">{{hegriDate}}</label>
+
+                </div>
+
+            </div>
+            <div class="card-body m-2" style="max-height: 300px; overflow-y: scroll ">
+
+                <table class="table table-striped text-center ">
+                    <thead>
+                        <tr>
+                            <th class="col-2">الإجراءات</th>
+                            <th class="borderLift col-2">ملاحظات</th>
+                            <th class="borderLift col-2">سبب الغياب</th>
+                            <th class="borderLift col-2">رقم الهوية</th>
+                            <th class="borderLift col-3">اسم الموظف</th>
+                            <th class="borderLift col-1 ">م</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="absenceEmployees.length === 0&& newAbsenceFlag!=1">
+                        <tr>
+                            <td colspan="6">
+                                <p>لا يوجد بيانات لعرضها</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody *ngIf="absenceEmployees!=[]||newAbsenceFlag==1">
+                        <ng-container *ngFor="let emp of absenceEmployees; let i = index">
+                            <ng-container *ngIf="!editMode[i]; else editField">
+                                <tr>
+                                    <td class="col-2 justify-content-center ">
+                                        <button class="btn btn-outline-danger col-md-12 "
+                                            [disabled]="emp.CanBeDeleted==false"
+                                            (click)="openEditMode(i,emp)">تعديل
+                                        </button>
+                                    </td>
+                                    <td class="borderLift col-2 text-center">{{emp.Notes}}</td>
+                                    <td class="borderLift col-2 text-center">{{emp.Status}}</td>
+                                    <td class="borderLift col-2 "> {{absenceEmployeesDetails[i].EmployeeIDNum}}</td>
+                                    <td class="borderLift col-3 text-end">{{emp.EmployeeName}}</td>
+                                    <td class="borderLift col-1 ">{{i+1}}</td>
+
+                                </tr>
+                            </ng-container>
+
+                            <ng-template #editField>
+                                <tr>
+                                    <td class="col-2 justify-content-center">
+                                        <button class="btn btn-outline-primary col-12 "
+                                            (click)="onSaveAbsenceData(emp.LatenessId)">حفظ</button>
+                                    </td>
+                                    <td class="borderLift col-2">
+        
+                                        <!-- <input type="text" class="form-control text-center" name="notes" [(ngModel)]="notes"> -->
+                                        <select class="form-select text-end" name="notes" [(ngModel)]="notes"
+                                        >
+                                        <option selected>-- اختر --</option>
+                                        <option value="مرضي">مرضي</option>
+                                        <option value="مرافق">مرافق</option>
+                                        <option value="أخرى">أخرى</option>
+                                    </select>
+                                    </td>
+                                    <td class="borderLift  col-2 ">
+        
+                                        <select class="form-select text-end" name="absentStatus" [(ngModel)]="absentStatus"
+                                            required>
+                                            <option selected>-- اختر --</option>
+                                            <option value="بدون عذر">بدون عذر </option>
+                                            <option value="بعذر">بعذر </option>
+                                            <option value="اضطراري">اضطراري </option>
+                                        </select>
+                                    </td>
+                                    <td class="borderLift col-2">
+        
+                                        <input type="text" class="form-control text-center" readonly name="employeeId"
+                                            [(ngModel)]="employeeId">
+                                    </td>
+        
+                                    <td class="borderLift col-3 text-end">
+                                        <input type="text" id="state" class="form-control text-end ps-0" name="empName"
+                                            [(ngModel)]="empName" [typeahead]="empNames" [typeaheadScrollable]="true"
+                                            [typeaheadOptionsInScrollableView]="5"  [typeaheadOrderBy]="sortConfig"
+                                            (typeaheadOnSelect)="fetchId()" maxlength="3">
+                                    </td>
+
+                                    <td class="borderLift col-md-1 "></td>
+        
+                            </ng-template>
+                        </ng-container>
+
+
+                        <tr *ngIf="newAbsenceFlag==1">
+
+                            <td class="col-2 justify-content-center">
+                                <button class="btn btn-outline-primary col-12 "
+                                    (click)="onSaveAbsenceData()">حفظ</button>
+                            </td>
+                            <td class="borderLift col-2">
+                                <!-- <input type="text" class="form-control text-center" name="notes" [(ngModel)]="notes"> -->
+                                <select class="form-select text-end" name="notes" [(ngModel)]="notes"
+                                required>
+                                <option selected>-- اختر --</option>
+                                <option value="مرضي">مرضي</option>
+                                <option value="مرافق">مرافق</option>
+                                <option value="أخرى">أخرى</option>
+                            </select>
+                            </td>
+                            <td class="borderLift  col-2 ">
+
+                                <select class="form-select text-end" name="absentStatus" [(ngModel)]="absentStatus"
+                                    required>
+                                    <option selected>-- اختر --</option>
+                                    <option value="بدون عذر">بدون عذر </option>
+                                    <option value="بعذر">بعذر </option>
+                                    <option value="اضطراري">اضطراري </option>
+                                </select>
+                            </td>
+                            <td class="borderLift col-2">
+
+                                <input type="text" class="form-control text-center" readonly name="employeeId"
+                                    [(ngModel)]="employeeId">
+                            </td>
+
+                            <td class="borderLift col-3 text-end">
+                                <input type="text" id="state" class="form-control text-end ps-0" name="empName"
+                                    [(ngModel)]="empName" [typeahead]="empNames" [typeaheadScrollable]="true" [typeaheadOrderBy]="sortConfig"
+                                    [typeaheadOptionsInScrollableView]="5" maxlength="3"
+                                    (typeaheadOnSelect)="fetchId()">
+                            </td>
+
+                            <td class="borderLift col-md-1 ">
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="row text-end me-4 ">
+                <div class="col-md-2 ms-auto mb-2 ">
+                    <button class="btn btn-primary " (click)="newAbsenceFlag=1">اضافة موظف</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-2 mb-4 col-md-10 m-auto">
+        <button class="btn btn-primary col-md-1 " (click)="Onback()">رجوع</button>
+
+    </div>
+    
+
+</div>
+<app-footer></app-footer>

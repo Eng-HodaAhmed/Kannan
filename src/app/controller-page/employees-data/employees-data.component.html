@@ -1,0 +1,65 @@
+<div class="container">
+  
+        <div class="card mb-5">
+            <div class="card-header">
+                <div class="row p-2">
+                    <div *ngIf="procedureId==0;" class="col-6 ">
+                         الإجراءات 
+                    </div>
+                    <div *ngIf="procedureId<=8&&procedureId!=0;" class="col-6 ">
+                     اجراءات التأخير 
+                    </div>
+                    <div *ngIf="procedureId>=11;" class="col-6 ">
+                        اجراءات الغياب 
+                    </div>
+             
+                    <div *ngIf="procedureId!==0&&procedureId!==2&&procedureId!==3&&procedureId!==4&&procedureId!==15"  class="col-6 text-end">
+                        <button class="btn btn-primary btn-sm "  (click)="changeIsprintedValue()" >
+                            طباعة التقرير
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body" style="height: 400px; overflow-y:scroll ">
+                <table class="table table-striped text-center" >
+                    <thead>
+                        <tr>
+                            <th *ngIf="procedureId!=2&&procedureId!=3&&procedureId!=4&&procedureId!=15" class="col-sm-4">تحديد</th>
+                            <!-- <th class="borderLift col-sm-3  ">رقم الهوية</th> -->
+                            <th class="borderLift col-sm-2 hide ">المسمى الوظيفي</th>
+                            <th class="borderLift col-sm-2">الاسم</th>
+                            <th class="borderLift col-sm-1 ">م</th>
+                        </tr>
+                    </thead>
+
+                    <tbody *ngIf="employees!=null else nodata" >
+                        <tr *ngFor="let emp of employees;let i=index">
+                            <td *ngIf="procedureId!=2&&procedureId!=3&&procedureId!=4&&procedureId!=15" class="col-sm-3 justify-content-center">
+                                <input type="checkbox"  [checked]="!emp.IsPrinted" (change)="toggleIsPrinted(i)" >
+
+                            </td>
+
+                            <td class="borderLift col-sm-2 hide ">{{emp.JobName}}</td>
+                            <td class="borderLift col-sm-3 text-end">{{emp.EmployeeName}}</td>
+                            <td class="borderLift col-sm-1 ">{{i+1}}</td>
+                            
+                        </tr>
+                      
+
+                    </tbody>
+                    <ng-template #nodata>
+                        <tr>
+                            <td colspan="4">
+                                <p class="text-center mt-4">لا يوجد موظفين لعرضهم</p>
+                            </td>
+                           
+                        </tr>
+                       
+                    </ng-template>
+                </table>
+
+            </div>
+        </div><!-- /.card -->
+  
+</div>
+

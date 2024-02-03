@@ -1,0 +1,10 @@
+/* @media(max-width:768px){
+.card-body{
+    height: 700px;
+    padding: 15px 5px;
+ }
+} */
+
+.pageBreak {
+    page-break-after: always;
+  }

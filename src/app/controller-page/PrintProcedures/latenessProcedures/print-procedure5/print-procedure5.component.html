@@ -1,0 +1,82 @@
+<div *ngFor="let emp of employees" class="content page">
+    <div class="row d-flex flex-row-reverse justify-content-between p-2">
+        <div class="col-4 text-center">
+            <img src="assets/img/المملكة.JPG" class="img-fluid" alt="">
+            <p>وزارة التعليم</p>
+            <p>الإدارة العامة للتعليم بمنطقة {{orgDetails.Region}}</p>
+            <p>إدارة الموارد البشرية</p>
+        </div>
+
+        <div class="col-3">
+            <img class="img-fluid" src="assets/img/وزارة التعليم.JPG" alt="">
+        </div>
+
+        <div class="col-3 text-end">
+            <p class="">:الرقـــــــــــــــم </p>
+            <p>:التاريـــــــــــخ</p>
+            <p>:المرفقـات</p>
+
+        </div>
+    </div>
+
+
+    <div class="text-center">
+        <h5>اسم النموذج:لفت نظر على ساعات تأخر وخروج مبكر</h5>
+    </div>
+    <table class="table" style="direction: rtl;">
+        <thead>
+            <tr>
+                <th class="table-secondary col-4">ال{{orgDetails.OrgType}}</th>
+                <td>{{orgDetails.OrgName}}</td>
+            </tr>
+        </thead>
+    </table>
+    <table class="table" style="direction: rtl;">
+        <thead>
+            <tr>
+                <th class="table-secondary col-4">رقم الهوية الوطنية</th>
+                <td>{{emp.EmployeeIdNum}}</td>
+            </tr>
+        </thead>
+    </table>
+    <table class="table " style="direction: rtl;">
+        <thead class="text-center">
+            <tr>
+                <th class="table-secondary col-4">الاسم</th>
+                <th class="table-secondary">التخصص</th>
+                <th class="table-secondary">المستوى/المرتبة</th>
+                <th class="table-secondary">رقم الوظيفة</th>
+                <th class="table-secondary">العمل الحالي</th>
+            </tr>
+        </thead>
+        <tbody>
+            <td>{{emp.EmployeeName}}</td>
+            <td>{{emp.Major}}</td>
+            <td>{{emp.Level}}</td>
+            <td>{{emp.JobNumber}}</td>
+            <td>{{emp.CurrentJob}}</td>
+        </tbody>
+    </table>
+
+    <div class="text-end">
+        <p>نظرا لتكرار تأخيرك (420)دقيقة بما يعادل يوم </p>
+        <p>وقد سبق تنبيهك شفهياً،وأخذ تعهد عليك،لذا وجب لفت نظرك</p>
+    </div>
+    <div class="row">
+        <div class="col-5 " style="direction: rtl;">
+            <p class="text-center">الرئيس المباشر </p>
+            <p>الإسم:</p>
+            <p>التوقيع:</p>
+            <p>التاريـــخ: &nbsp; &nbsp;&nbsp; &nbsp; /&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; /</p>
+        </div>
+        <div class="col-3 text-center">
+            <br>
+            <br>
+            <br>
+            <p>الختـــــــم</p>
+        </div>
+    </div>
+</div>
+<div class="content page">
+    <app-final-desition></app-final-desition>
+</div>

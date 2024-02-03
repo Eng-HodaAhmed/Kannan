@@ -1,0 +1,18 @@
+.nav-link:hover{
+    background-color: #3c5b56;
+    color: white !important;
+}
+.navbar{
+    background-color: rgb(237, 237, 237);
+}
+input{
+    border-color: rgb(207, 207, 207);
+}
+.alertBox{
+    min-width:200px;
+    background-color: rgb(115, 205, 249);
+    border: 1px solid  rgb(57, 157, 234);
+    height: 50px;
+    padding-top: 10px;
+    border-radius: 7px;
+}

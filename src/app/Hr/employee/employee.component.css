@@ -1,0 +1,16 @@
+.borderLift{
+    border-left: 1px solid gray;
+}
+input{
+    border-color: rgb(158, 158, 158) !important;
+}
+
+input.ng-invalid.ng-touched,select.ng-invalid.ng-touched{
+    border: 1px solid rgb(205, 12, 12) !important;
+ }
+@media(max-width:768px){
+    
+    .hide{
+        display: none;
+    }
+ }

@@ -1,0 +1,82 @@
+<app-nav-icons></app-nav-icons>
+<div class="container" dir="rtl" >
+    <form #f="ngForm" class="mt-5 mb-5 text-center col-md-10 m-auto">
+        <h4>حصر أيام الغياب خلال العام</h4>
+        <div class="mt-5 row justify-content-between align-items-center">
+            <div class="col-sm-5 mb-3 ">
+                <label for="employee Name" class="col-4">اسم الموظف : </label>
+                <select class="col-8" aria-label="employees Name" (change)="fechAbcenseDetails($event.target.value)" [(ngModel)]="empName">
+                    <option *ngFor="let emp of employedEmp;let i=index;" [value]="emp.Id" >
+                        {{emp.EmployeeName}}</option>
+                </select>
+            </div>
+            <div class="col-sm-4 mb-3 ">
+                <label for="employee Name" class="col-4">نوع الغياب : </label>
+                <select class="col-6" aria-label="employees Name" [disabled]="empFlag==false" (change)="fechAbcenseType($event.target.value)" >
+                                
+                    <option selected>-- اختر --</option>
+                    <option value="بدون عذر">بدون عذر </option>
+                    <option value="بعذر">بعذر </option>
+                    <option value="اضطراري">اضطراري </option>
+                                        
+                </select>
+            </div>
+
+            <div class="row col-sm-3 mb-3 ">
+                <button class="btn btn-primary col-sm-6" [useExistingCss]="true"  printSectionId="printSection" ngxPrint>طباعة</button>
+                
+                <button class="btn btn-primary col-sm-5 me-2"  (click)="Onback()">رجوع</button>
+             
+            </div>
+        </div>
+        <div class="card-body mt-4" dir="rtl" id="printSection" >
+            <div class="row d-flex  justify-content-between p-2 mb-5" dir="rtl">
+                <div class="col-4 text-center">
+                  <img  src="assets/img/المملكة.JPG"  class="img-fluid" alt="">
+                  <p>وزارة التعليم</p>
+                  <p>الإدارة العامة للتعليم بمنطقة {{orgDetails.Region}} </p>
+                  <p>إدارة الموارد البشرية</p>
+                </div>
+                 
+                <div class="col-3 text-end">
+                  <img class="img-fluid" src="assets/img/وزارة التعليم.JPG" alt="">
+                </div>
+                  
+                <div class="col-3 text-end">
+                  <p class="">:الرقـــــــــــــــم </p>
+                  <p >:التاريـــــــــــخ</p>
+                  <p>:المرفقـات</p>
+                </div>
+          
+            </div>
+            <table class="table table-striped text-center" dir="rtl">
+                <thead>
+                    <tr>
+                        <th class="borderLift  ">م</th>
+                        <th class="borderLift col-sm-4 text-end">الاسم</th>
+                        <th class="borderLift col-sm-2 text-end">نوع الغياب</th>
+                        <th class="borderLift col-sm-1 hide ">اليوم</th>
+                        <th class="borderLift col-sm-3">التاريخ الهجري</th>
+                        <th class="borderLift col-sm-2">التاريخ الميلادي</th>
+                      
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let emp of latenessDetails; let i=index">
+
+                        <td class="borderLift ">{{i+1}}</td>
+                        <td class="borderLift col-sm-4 text-end">{{emp.EmployeeName}}</td>
+                        <td class="borderLift col-sm-2 text-end">{{emp.Status}}</td>
+                        <td class="borderLift col-sm-1 hide">{{emp.Day}}</td>
+                        <td class="borderLift col-sm-3  ">{{emp.HijriDate}}</td>
+                        <td class="borderLift col-sm-2 ">{{emp.ArrivingTime.split(' ')[0]}}</td>
+           
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </form>
+</div>

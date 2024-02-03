@@ -1,0 +1,60 @@
+<app-nav-icons></app-nav-icons>
+<div class="container">
+    <div class="card mt-5 mb-2">
+        <div class="card-header">
+            <div class="row p-2">
+                <div class="">
+                    إجراءات الغياب
+                </div>
+
+            </div>
+        </div>
+        <div class="card-body" style="height: 400px; overflow-y: scroll ">
+            <table class="table table-striped text-center">
+                <thead>
+                    <tr>
+                        <th class=" col-2">الرفع للموارد البشرية</th>
+                        <th class=" col-2">مسائلة ولفت نظر</th>
+                        <th class=" col-2">لفت نظر</th>
+                        <th class=" col-1">تعهد خطي</th>
+                       
+                        <th class="col-2">تنبيه خطي</th>
+                        <th class=" col-2">الاسم</th>
+                        <th class="col-1">م</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let emp of map|keyvalue; let i=index">
+
+                        <td class=" col-2 "> <input *ngIf="emp.value.procedure5>0 else notassign" type="checkbox"
+                                [checked]="emp.value.procedure5==2" (change)="toggleIsSigned(emp.key,15,$event)">
+                        </td>
+                        <td class=" col-2"> <input *ngIf="emp.value.procedure4>0 else notassign" type="checkbox"
+                                [checked]="emp.value.procedure4==2" (change)="toggleIsSigned(emp.key,14,$event)">
+                        </td>
+                        <td class=" col-2 "> <input *ngIf="emp.value.procedure3>0 else notassign" type="checkbox"
+                                [checked]="emp.value.procedure3==2" (change)="toggleIsSigned(emp.key,13,$event)">
+                        </td>
+                        <td class=" col-1"> <input *ngIf="emp.value.procedure2>0 else notassign" type="checkbox"
+                                [checked]="emp.value.procedure2==2" (change)="toggleIsSigned(emp.key,12,$event)">
+                        </td>
+                        <td class=" col2"> <input *ngIf="emp.value.procedure1>0 else notassign" type="checkbox"
+                                [checked]="emp.value.procedure1==2" (change)="toggleIsSigned(emp.key,11,$event)">
+                        </td>
+                        <td class=" col-2 text-end">{{emp.value.EmployeeName}}</td>
+                        <td class=" col-1">{{i+1}}</td>
+
+                        <ng-template #notassign>
+                            <input type="checkbox" disabled=true>
+                        </ng-template>
+                    </tr>
+
+                </tbody>
+            </table> 
+
+        </div>
+    </div><!-- /.card -->
+    <button class="btn btn-primary mb-4 ps-4 pe-4 pb-2" routerLink="/controllerPage">رجوع</button>
+</div>
+<app-footer></app-footer>

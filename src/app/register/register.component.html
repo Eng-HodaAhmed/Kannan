@@ -1,0 +1,177 @@
+<!-- <app-nav-icons></app-nav-icons> -->
+<div class="me-2 ms-2 mb-5" dir="rtl">
+    <h4 class="text-center mt-5 ">اشتراك جديد</h4>
+
+    <div *ngIf="step1==true">
+        <div class="row justify-content-evenly">
+            <div class="col-md-3">
+                <form #form1="ngForm" class="mt-4" (ngSubmit)="onSubmit1()">
+                    <label class="col-form-label">نوع الاشتراك</label>
+                    <select class="form-select" name="orgType" [(ngModel)]="orgType" required>
+                        <option value="مدرسة">مدرسة</option>
+                        <option value="مكتب تعليم">مكتب تعليم</option>
+                        <option value="إدارة تعليم">إدارة تعليم</option>
+                    </select>
+
+                    <button type="submit" [disabled]="!form1.valid" class="btn btn-primary mt-4">التالي</button>
+                </form>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+
+
+    <div *ngIf="step2==true">
+        <div class="row justify-content-evenly mt-5 ">
+            <div class="col-md-3">
+                <div class="row justify-content-evenly">
+                    <div class="col-9">
+                        <p class="grayMode">نوع الاشتراك :- {{orgType}} </p>
+                    </div>
+                    <div class="col-3">
+                        <a href="#" (click)="goStep1($event)">تعديل</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5 line pe-4">
+                <form #form2="ngForm" (ngSubmit)="onSubmit2()">
+                    <div class="mb-3">
+                        <label class="col-md-4">اسم المشترك</label>
+                        <input type="text" class="col-md-8"  name="fullName" [(ngModel)]="fullName" required >
+                        <!-- <div *ngIf="!fullName.valid" class="form-text">من فضلك ادخل اسم المشترك</div> -->
+                    </div>
+                    <div class=" mb-3">
+                        <label class="col-md-4">رقم الهوية</label>
+                        <input type="text"  maxlength="10" pattern="[0-9]{0,10}" class="col-md-8" name="idNum" [(ngModel)]="idNum" required>
+                    </div>
+                    <div class=" mb-3">
+                        <label class="col-md-4">رقم الجوال</label>
+                        <input type="text" class="col-md-8" name="mobileNum" [(ngModel)]="mobileNum" required>
+                    </div>
+                    <div class=" mb-3">
+                        <label class="col-md-4">الايميل</label>
+                        <input type="text" class="col-md-8" name="email" [(ngModel)]="email" required email>
+                    </div>
+                    <div class=" mb-3">
+                        <label class="col-md-4">اسم {{orgType}}</label>
+                        <input type="text" class="col-md-8" name="orgName" [(ngModel)]="orgName">
+                    </div>
+                    <div class=" mb-3">
+                        <label class="col-md-4">الرقم الوزاري</label>
+                        <input type="text"  maxlength="10" pattern="[0-9]{0,10}" class="col-md-8" name="orgNationalId" [(ngModel)]="orgNationalId">
+                    </div>
+                    <div class=" mb-3">
+                        <label class="col-md-4">المنطقة</label>
+                        <input type="text" class="col-md-8" name="region" [(ngModel)]="region">
+                    </div>
+                    <div class="">
+                        <label class="col-md-4">اسم المدير</label>
+                        <input type="text" class="col-md-8" name="managerName" [(ngModel)]="managerName">
+                    </div>
+                    <div class="col-md-8 me-auto">
+                        <button type="submit" [disabled]="!form2.valid" class="btn btn-primary mt-4">التالي</button>
+
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-md-4">
+
+            </div>
+        </div>
+    </div>
+
+
+    <div *ngIf="step3==true">
+        <div class="row justify-content-evenly mt-5 ">
+            <div class="col-md-3">
+                <div class="row justify-content-evenly">
+                    <div class="col-9">
+                        <p class="grayMode">نوع الاشتراك :- {{orgType}} </p>
+                    </div>
+                    <div class="col-3">
+                        <a href="#" (click)="goStep1($event)">تعديل</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 line pe-4">
+                <form>
+                    <div class="mb-3">
+                        <label class="col-md-4">اسم المشترك</label>
+                        <label class="col-md-8">{{fullName}}</label>
+                        <!-- <div *ngIf="!fullName.valid" class="form-text">من فضلك ادخل اسم المشترك</div> -->
+                    </div>
+                    <div class=" mb-3">
+                        <label class="col-md-4">رقم الهوية</label>
+                        <label class="col-md-8">{{idNum}}</label>
+                    </div>
+                    <div class=" mb-3">
+                        <label class="col-md-4">رقم الجوال</label>
+                        <label class="col-md-8">{{mobileNum}}</label>
+                        
+                    </div>
+                    <div class=" mb-3">
+                        <label class="col-md-4">الايميل</label>
+                        <label class="col-md-8">{{email}}</label>
+                        
+                    </div>
+                    <div class=" mb-3">
+                        <label class="col-md-4"> اسم {{orgType}} </label>
+                        <label class="col-md-8">{{orgName}}</label>
+                        
+                    </div>
+                    <div class=" mb-3">
+                        <label class="col-md-4">الرقم الوزاري</label>
+                        <label class="col-md-8">{{orgNationalId}}</label>
+                        
+                    </div>
+                    <div class=" mb-3">
+                        <label class="col-md-4">المنطقة</label>
+                        <label class="col-md-8">{{region}}</label>
+                        
+                    </div>
+                    <div class="">
+                        <label class="col-md-4">اسم المدير</label>
+                        <label class="col-md-8">{{managerName}}</label>
+                       
+                    </div>
+                    <div class="col-md-8 me-auto mt-4">
+                        <a href="#" (click)="goStep2($event)">تعديل</a>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-md-4 line pe-4">
+                <form #form3="ngForm" (ngSubmit)="onRegister()">
+                    <div class="mb-3">
+                        <label class="col-md-4">المبلغ المدفوع</label>
+                        <select type="number" class="col-md-8"  name="amount" [(ngModel)]="amount" required >
+                            <option value=300>300</option>
+                            <option value=400>400</option>
+                            <option value=500>500</option>
+                        </select>
+                        
+                    </div>
+                    <div class=" mb-3">
+                        <label class="col-md-4">صورة الايصال</label>
+                        <input type="file" class="col-md-8" (change)="handleUpload($event)"  [(ngModel)]="selectedFile"  accept=".pdf, .jpg, .jpeg, .png" required>
+                    </div>
+                    <div class=" mb-3">
+                        <label class="col-md-4">عام الاشتراك</label>
+                        <input type="text" class="col-md-8" name="year" [(ngModel)]="year" placeholder="1446/1445 مثل">
+                    </div>
+
+                    <div class="col-md-8 me-auto">
+                        <button type="submit" [disabled]="!form3.valid||clickFlag==true" class="btn btn-primary mt-4">اشتراك</button>
+
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+
+</div>

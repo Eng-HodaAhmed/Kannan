@@ -1,0 +1,6 @@
+.borderLift{
+    border-left: 1px solid gray;
+}
+input,select{
+    border-color: rgb(158, 158, 158) !important;
+}

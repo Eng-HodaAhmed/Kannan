@@ -1,0 +1,92 @@
+<app-nav-icons></app-nav-icons>
+<div class="container">
+    <div class="card mt-5 mb-5">
+        <div class="card-header">
+            <div class="row p-2">
+                <div class="col-6 ">
+                    سجل الموظفين
+                </div>
+                <div class="col-6 text-end">
+                    <button class="btn btn-primary btn-sm " routerLink='/newEmployee'>
+                        اضافة موظف
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body" style="height: 400px; overflow-y: scroll ">
+            <table class="table table-striped text-center">
+                <thead>
+                    <tr>
+                        <th class="col-sm-3">الإجراءات</th>
+                        <th class="borderLift col-sm-1 hide ">التخصص</th>
+                        <th class="borderLift col-sm-2  hide">المسمى الوظيفي</th>
+                        <th class="borderLift col-sm-2  ">رقم الهوية</th>
+                        <th class="borderLift col-sm-2 hide ">العمل الحالي</th>
+                        <th class="borderLift col-sm-2">الاسم</th>
+                        <th class="borderLift  ">م</th>
+                    </tr>
+                </thead>
+                
+                <tbody *ngIf="employedEmp!=null" >
+                    <tr *ngFor="let emp of employedEmp; let i=index">
+                        <td class="col-sm-3 justify-content-center">
+                            <button class="btn btn-outline-danger col-sm-4 btn-sm "  style="margin-right: 5%;" data-bs-toggle="modal" data-bs-target="#releaseModal" (click)="onButtonClick($event)" id="{{emp.Id}}">اخلاء طرف</button>
+                            <button class="btn btn-outline-primary col-sm-4 btn-sm" routerLink="/newEmployee/{{emp.Id}}" >تعديل</button>
+                        </td>
+                        <td class="borderLift col-sm-1 hide">{{emp.Major}}</td> 
+                        <td class="borderLift col-sm-2 hide">{{emp.JobName}}</td> 
+                        <td class="borderLift col-sm-2 ">{{emp.EmployeeIDNum}}</td> 
+                        <td class="borderLift col-sm-2 hide ">{{emp.CurrentJob}}</td>
+                        <td class="borderLift col-sm-2 text-end">{{emp.EmployeeName}}</td>
+                        <td class="borderLift ">{{i+1}}</td>
+                    </tr>
+    
+                </tbody>
+            </table>
+           
+        </div>
+    </div><!-- /.card -->
+    <div class="row mt-2 mb-4 col-md-10 m-auto">
+        <button class="btn btn-primary col-md-1 " (click)="Onback()">رجوع</button>
+
+    </div>
+</div>
+
+    <!-- modal -->
+    <div class="modal fade " id="releaseModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">إخلاء طرف</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form #f="ngForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group text-end">
+                        <label for="date" class="form-label me-2">تاريخ إخلاء الطرف</label>
+                        <input type="text" class="form-control text-end"  bsDatepicker ngModel name="datepickerModel" required />
+                        
+                    </div>
+                    <div class="form-group text-end">
+                        <label for="date" class="form-label me-2">السبب</label>
+                        <input type="text" class="form-control text-end" ngModel name="reason" required>
+                    </div>
+            
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">رجوع</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!f.valid" data-bs-dismiss="modal" >حفظ</button>
+                    </div>
+                </form>
+          </div>
+        </div>
+      
+    <div>
+  
+    </div>
+
+
+    
+
+    
+    </div>
+

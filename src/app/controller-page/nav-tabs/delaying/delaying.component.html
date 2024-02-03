@@ -1,0 +1,124 @@
+<div class="row  p-4 pt-5 d-flex flex-row-reverse" >
+    <div class="col-md-3 col-sm-6 mb-5 ">
+        <button type="button " class="btn card position-relative w-100" (click)="OnFirstProcedure()">
+            <h6 class="mb-2" style="direction: rtl;" >30 دقيقة</h6>
+            <p  class="mt-0"> تنبيه شفوي</p>
+            <span class="position-absolute top-0 translate-middle badge square">
+                {{firstLatenessSum}}
+                <!-- <span class="visually-hidden">unread messages</span> -->
+            </span>
+    
+            <span class="position-absolute top-0 translate-middle badge circle">
+                {{firstLateness}}
+            </span>
+        </button>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-5">
+        <button type="button" class="btn card position-relative w-100" (click)="OnSecondProcedure()">
+            <h6 class="mb-2" style="direction: rtl;" >60 دقيقة</h6>
+            <p  class="mt-0">تنبيه خطي</p>
+            <span class="position-absolute top-0  translate-middle badge square">
+                {{secondLatenessSum}}
+                <span class="visually-hidden">unread messages</span>
+            </span>
+    
+            <span class="position-absolute top-0 translate-middle badge circle">
+                {{secondLateness}}
+            </span>
+        </button>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-5">
+        <button type="button" class="btn card position-relative w-100" (click)="OnThirdProcedure()">
+            <h6 class="mb-2" style="direction: rtl;" >120 دقيقة</h6>
+            <p  class="mt-0">تعهد خطي1</p>
+            <span class="position-absolute top-0  translate-middle badge square">
+                {{thirdLatenessSum}}
+                <span class="visually-hidden">unread messages</span>
+            </span>
+            <span class="position-absolute top-0 translate-middle badge circle">
+                {{thirdLateness}}
+            </span>
+        </button>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-5">
+        <button type="button " class="btn card position-relative w-100" (click)="OnFourthProcedure()">
+            <h6 class="mb-2" style="direction: rtl;" >240 دقيقة</h6>
+            <p  class="mt-0">تعهد خطي2</p>
+            <span class="position-absolute top-0 translate-middle badge square">
+                <div>{{fourthLatenessSum}}</div>
+            </span>
+            <span class="position-absolute top-0 translate-middle badge circle">
+                {{fourthLateness}}
+            </span>
+        </button>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-5">
+        <button type="button" class="btn card position-relative w-100" (click)="OnFifthProcedure()">
+            <h6 class="mb-2" style="direction: rtl;">420 دقيقة</h6>
+            <p  class="mt-0">بما يعادل يوم</p>
+            <p  class="mt-0">لفت نظر</p>
+            <span class="position-absolute top-0  translate-middle badge square">
+                {{fifthLatenessSum}}
+                <span class="visually-hidden">unread messages</span>
+            </span>
+    
+            <span class="position-absolute top-0 translate-middle badge circle">
+                {{fifthLateness}}
+            </span>
+        </button>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-5 ">
+        <button type="button" class="btn card position-relative w-100" (click)="OnSixthProcedure()">
+            <h6 class="mb-2" style="direction: rtl;" >840 دقيقة</h6>
+            <p  class="mt-0">بما يعادل يومان</p>
+            <p  class="mt-0"> مسائلة ولفت نظر</p>
+            <span class="position-absolute top-0  translate-middle badge square">
+                {{sixthLatenessSum}}
+                <span class="visually-hidden">unread messages</span>
+            </span>
+    
+            <span class="position-absolute top-0 translate-middle badge circle">
+            {{sixthLateness}}
+            </span>
+        </button>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-5">
+        <button type="button" class="btn card position-relative w-100" (click)="OnSeventhProcedure()">
+            <h6 class="mb-2" style="direction: rtl;" >1680 دقيقة</h6>
+            <p  class="mt-0">بما يعادل 4 أيام</p>
+            <p  class="mt-0">الرفع لإدارة الموارد البشرية</p>
+            <span class="position-absolute top-0  translate-middle badge square">
+                {{seventhLatenessSum}}
+                <span class="visually-hidden">unread messages</span>
+            </span>
+    
+            <span class="position-absolute top-0 translate-middle badge circle">
+                {{seventhLateness}}
+            </span>
+        </button>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-5">
+        <button type="button" class="btn card position-relative w-100" (click)="OnEighthProcedure()">
+            <h6 class="mb-2" style="direction: rtl;" >2100 دقيقة</h6>
+            <p  class="mt-0">بما يعادل 5أيام فأكثر</p>
+            <p  class="mt-0">الرفع لإدارة الموارد البشرية</p>
+            <span class="position-absolute top-0  translate-middle badge square">
+                {{eighthLatenessSum}}
+                <span class="visually-hidden">unread messages</span>
+            </span>
+    
+            <span class="position-absolute top-0 translate-middle badge circle">
+                {{eighthLateness}}
+            </span>
+        </button>
+    </div>
+
+
+</div>

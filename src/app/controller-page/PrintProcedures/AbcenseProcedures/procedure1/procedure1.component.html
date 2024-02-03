@@ -1,0 +1,129 @@
+
+<div *ngFor="let emp of employees" class="content page"  >
+    <div class="row d-flex flex-row-reverse justify-content-between p-2">
+        <div class="col-4 text-center">
+          <img  src="assets/img/المملكة.JPG"  class="img-fluid" alt="">
+          <p>وزارة التعليم</p>
+          <p>الإدارة العامة للتعليم بمنطقة {{orgDetails.Region}} </p>
+          <p>إدارة الموارد البشرية</p>
+        </div>
+         
+        <div class="col-3 text-end">
+          <img class="img-fluid" src="assets/img/وزارة التعليم.JPG" alt="">
+        </div>
+          
+        <div class="col-3 text-end">
+          <p class="">:الرقـــــــــــــــم </p>
+          <p >:التاريـــــــــــخ</p>
+          <p>:المرفقـات</p>
+        </div>
+  
+    </div>
+
+    <div class="text-center">
+        <h5>بيان بأيام الغياب بدون عذر (المتفرقة) التي تم رصدها على الموظف/ة والإجراء المتخذ بشأنها</h5>
+        <h5>من تاريخ &nbsp;&nbsp;/&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;14&nbsp;&nbsp; حتى تاريخ &nbsp;&nbsp;/&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;14</h5>
+    </div>
+
+    <table class="table mt-2 mb-2 " style="direction: rtl;">
+        <thead>
+            <tr>
+                <th class="table-secondary col-2">اسم الموظف</th>
+                <td>{{emp. EmployeeName}}</td>
+                <th class="table-secondary col-2" >المسمى الوظيفي</th>
+                <td>{{emp.JobName}}</td>
+            </tr>
+        </thead>
+      <tbody>
+        <tr class="">
+            <th class="table-secondary col-2">رقم الهوية الوطنية</th>
+            <td>{{emp.EmployeeIdNum}}</td>
+            <th class="table-secondary col-2">جهة العمل</th>
+            <td>{{orgDetails.OrgName}}</td>
+        </tr>
+      </tbody>
+
+    </table >
+
+    <table class="table text-center" style="direction: rtl;">
+        <thead class="table-secondary text-center">
+            <tr>
+                <th class="">م</th>
+                <th class="col-2">عدد أيام الغياب</th>
+                <th class="col-2">تاريخ الغياب</th>
+                <th class="col-2" >نوع الإجراء </th>
+                <th class="col-3" >الإجراء المتخذ</th>
+                <th class="col-3">الاسم والتوقيع والتاريخ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="table-secondary">1</td>
+                <td style="direction: rtl;">يومان</td>
+                <td > </td>
+                <td class=""> تنبيه خطي</td>
+                <td class="text-end"> نظراً لتكرار غيابك لذا وجب تنبيهك خطياً</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="table-secondary">2</td>
+                <td style="direction: rtl;">أربعة أيام</td>
+                <td > </td>
+                <td>تعهد خطي</td>
+                <td class="text-end"> أتعهد بعدم الغياب واذا تكررأتحمل مايترتب على غيابي من اجراءات</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="table-secondary">3</td>
+                <td style="direction: rtl;">ستة أيام</td>
+                <td > </td>
+                <td>لفت نظر</td>
+                <td class="text-end"> لقد تم تنبيهك شفهيا وخطياً،وأخذ تعهد عليك،لذا وجب لفت نظرك إلى تكرار غيابك</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="table-secondary">4</td>
+                <td style="direction: rtl;">عشرة أيام</td>
+                <td > </td>
+                <td>مساءلة ولفت نظر</td>
+                <td class="text-end">
+                    مسائلة الموظف/ة خطيا من قبل مديره والرفع للمكتب المختص ليلفت نظره/ها</td>
+                <td></td>
+            </tr>
+     
+            <tr>
+                <td class="table-secondary">6</td>
+                <td style="direction: rtl;">خمسة عشر يوماً</td>
+                <td > </td>
+                <td>الرفع لإدارة الموارد البشرية(وحدة متابعة دوام الموظفين)</td>
+                <td class="text-end">
+                    الرفع لإدارة الموارد البشرية(وحدة متابعة دوام الموظفين) ،مع ارفاق كافة الاجراءات التى سبق اتخاذها أعلاه وارفاق صورة من هذا النموذج</td>
+                <td></td>
+            </tr>
+          
+    
+        </tbody>
+    </table>
+    <div class="row mt-2 pb-2 " style="direction: rtl;">
+        <div class="col-4">
+            <!-- <p>مديرال{{orgDetails.OrgType}}</p>
+            <p >الإسم: {{orgDetails.ManagerName}}</p>
+            <p>التوقيع:</p> -->
+            
+        </div>
+        <div class="col-4">
+            <p>الختم</p>
+        </div>
+        <div class="col-4">
+            <p>يعتمد مدير ال{{orgDetails.OrgType}}</p>
+            <p >الإسم:{{orgDetails.ManagerName}}</p>
+            <p>التوقيع:</p>
+        </div>
+    </div>
+</div>
+<div class=" page">
+<app-tanbeeh-khatty [daysNum]="days" [procedureName]="proName" [text]="text"></app-tanbeeh-khatty>
+</div>
+<div class="page">
+    <app-discount-desition [daysNum]="days"></app-discount-desition>
+</div>

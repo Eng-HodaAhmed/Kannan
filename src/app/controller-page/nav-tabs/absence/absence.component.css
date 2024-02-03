@@ -1,0 +1,38 @@
+
+.square{
+    background-color: #3c5b56;
+    width:30px;
+    height: 25px;
+    border-radius: 3px;
+    text-align: center;
+    right: 0%;
+    padding-top: 6px;
+}
+.circle{
+    background-color: #1a85cb;
+    width:32px;
+    height: 30px;
+    border-radius: 100% ;
+    text-align: center;
+    left: 20%;
+    border: 1px solid rgb(18, 69, 164);
+    padding-top: 6px;
+}
+.card{
+    height:25vh;
+    background-color: rgb(248, 248, 248);
+    border: 1px solid black;
+   
+}
+
+h5,p{
+    margin: auto;
+}
+
+@media(max-width:1030px){
+    .card{
+       height: auto;
+       width: auto;
+       padding: 15px 5px;
+    }
+}

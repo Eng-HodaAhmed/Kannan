@@ -1,0 +1,83 @@
+
+
+    <div class="row  p-5 d-flex flex-row-reverse">
+        <div class="col-md-4 col-sm-6 mb-4">
+            <button type="button " class="btn card position-relative w-100 " (click)="OnFirstProcedure()">
+                <h5 class="mb-2" >يومـان</h5>
+                <p  class="mt-0">تنبيه خطي</p>
+                <span class="position-absolute top-0 translate-middle badge square">
+                    <div>{{firstLatenessSum}}</div>
+                </span>
+                <span class="position-absolute top-0 translate-middle badge circle">
+                    {{firstLateness}}
+                </span>
+            </button>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mb-4">
+            <button type="button" class="btn card position-relative w-100" (click)="OnSecondProcedure()">
+                <h5 class="mb-2" >أربعة أيام</h5> 
+                <p  class="mt-0">تعهد خطي</p>
+                <span class="position-absolute top-0  translate-middle badge square">
+                    {{secondLatenessSum}}
+                    <!-- <span class="visually-hidden">unread messages</span> -->
+                </span>
+                <span class="position-absolute top-0 translate-middle badge circle">
+                    {{secondLateness}}
+                </span>
+            </button>
+        </div>
+        
+        <div class="col-md-4 col-sm-6 mb-4">
+            <button type="button" class="btn card position-relative w-100" (click)="OnThirdProcedure()">
+                <h5 class="mb-2" >ستة أيام</h5>
+                <p  class="mt-0">لفت نظر</p>
+                <span class="position-absolute top-0  translate-middle badge square">
+                    {{thirdLatenessSum}}
+                    
+                </span>
+        
+                <span class="position-absolute top-0 translate-middle badge circle">
+                    {{thirdLateness}}
+                </span>
+            </button>
+        </div>
+
+      
+        <div class="col-md-4 col-sm-6 mb-4">
+            <button type="button " class="btn card position-relative w-100" (click)="OnFourthProcedure()">
+                <h5 class="mb-2" > عشرة أيام</h5>
+                <p  class="mt-0">مسائلةولفت نظر</p>
+                <span class="position-absolute top-0 translate-middle badge square">
+                    {{fourthLatenessSum}}
+                    <!-- <span class="visually-hidden">unread messages</span> -->
+                </span>
+        
+                <span class="position-absolute top-0 translate-middle badge circle">
+                    {{fourthLateness}}
+                </span>
+            </button>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mb-4">
+            <button type="button " class="btn card position-relative w-100" (click)="OnFifthProcedure()">
+                <h5 class="mb-2" >خمسة عشر يوما</h5>
+                <p  class="mt-0"> الرفع لإدارة الموارد البشرية</p>
+                <span class="position-absolute top-0 translate-middle badge square">
+                    {{fifthLatenessSum}}
+                    <!-- <span class="visually-hidden">unread messages</span> -->
+                </span>
+        
+                <span class="position-absolute top-0 translate-middle badge circle">
+                    {{fifthLateness}}
+                </span>
+            </button>
+        </div>
+        
+       
+    </div>
+
+
+
+
+           

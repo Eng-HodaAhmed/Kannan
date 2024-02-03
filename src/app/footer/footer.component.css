@@ -1,0 +1,12 @@
+.footer{
+   padding: 30px 20px;
+    /* height: 25vh; */
+    background-color:#3c5b56;
+    color: white;
+    font-family: 'Cairo', sans-serif;
+    
+}
+img{
+    width:75%;
+    border-radius: 5px;
+}

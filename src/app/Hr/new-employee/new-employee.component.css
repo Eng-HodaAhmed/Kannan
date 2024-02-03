@@ -1,0 +1,57 @@
+
+
+.box{
+    border: 1px solid rgb(191, 191, 191);
+    border-radius: 7px;
+    /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    margin: 5px 0;
+    background-color: rgb(245, 245, 245);
+}
+/* .form-control{
+    border-color:  rgb(133, 133, 133) !important;
+} */
+/* label,option,.date,.helpBlock{
+    display: block;
+    text-align: right;
+   
+} */
+
+.helpBlock{
+    font-size: 12px;
+    color: gray;
+}
+h5::after{
+    content: '';
+    width: 15%;
+    display: block;
+    height: 2px;
+    margin: auto;
+    margin-top: 8px;
+    background-color:black;
+}
+ input,select{
+    border-color: rgb(148, 148, 148) !important;
+ }
+
+ input.ng-invalid.ng-touched,select.ng-invalid.ng-touched{
+    border: 1px solid rgb(205, 12, 12) !important;
+ }
+
+ .btn{
+    width:45%
+ }
+
+
+
+ @media(max-width:768px){
+    .box{
+        padding:15px;
+        border-style: none;
+    }
+    h5::after{
+        width: 25%;
+    }
+    .margin{
+        margin-bottom: 25px;
+    }
+ }
